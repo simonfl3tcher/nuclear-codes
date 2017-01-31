@@ -6,21 +6,13 @@ const SRC_DIR  = path.resolve(__dirname, './src/')
 const DIST_DIR = path.resolve(__dirname, '.')
 
 module.exports = {
-  context: __dirname,
-  devtool: debug ? "inline-source-map" : null,
-  cache: true,
+  devtool: debug ? "source-map" : null,
   entry:  SRC_DIR + "/app.jsx",
   resolveLoader: {
     modules: ['node_modules', __dirname + '/client/node_modules'],
     moduleExtensions: ['-loader']
   },
   module: {
-    rules: [
-      {
-        test: /\.json$/,
-        use: 'json-loader'
-      }
-    ],
     noParse: [
       /aws\-sdk/,
     ],
@@ -55,8 +47,8 @@ module.exports = {
     ]
   },
   output: {
-    path: DIST_DIR,
-    filename: "/app.min.js"
+    path: __dirname + '/public/assets',
+    filename: 'bundle.js'
   },
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),

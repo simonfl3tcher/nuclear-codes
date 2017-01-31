@@ -1,0 +1,27 @@
+body {
+  background-color: #1F2D3D;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+.bomb {
+  width: 120px;
+  height: 170px;
+  display: block;
+  margin: 0 auto;
+}
+
+.code {
+  color: #ffffff;
+  font-size: 50px;
+  font-weight: bold;
+  margin-top: 30px;
+  text-align: center;
+  font-family: helvetica;
+}

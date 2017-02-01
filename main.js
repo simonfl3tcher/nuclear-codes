@@ -19,6 +19,8 @@ function createWindow() {
     minWidth: 300,
     minHeight: 200
   })
+
+  mainWindow.setResizable(false);
 // un-comment this if you like to keep the same aspect ratio when 
 // mainWindow.setAspectRatio(1.3)
   // and load the index.html of the app.

@@ -7,21 +7,23 @@ import Webcam from 'webcamjs';
 import * as play from 'audio-play';
 import { Link, hashHistory } from 'react-router'
 
-import AWSUtil from '../../utils/aws.jsx'
+import AWSUtil from '../../utils/awsUtil.js'
 
 function pollySpeak(string) {
   let audioElement = document.getElementById('audio');
-  Promise.resolve(AWSUtil.getPollyMP3Url(string)).then(function(url) {
-    audioElement.src = url;
-    setTimeout(function() {
-     audioElement.play();
-    }, 500);
-  }).catch(function(error) {
-    console.log("Polly Error!");
-    console.log(error);
-  });
+
+  Promise.resolve(AWSUtil.getPollyMP3Url(string)).
+    then((url) => {
+      audioElement.src = url;
+      setTimeout(() => {
+       audioElement.play();
+      }, 500);
+    }).catch((error) => {
+      console.log("Something went wrong with playing the Polly file.");
+    });
 }
 
+// Component
 class Login extends React.Component {
   componentDidMount() {
     Webcam.set({
@@ -36,7 +38,7 @@ class Login extends React.Component {
       <div>
         <audio id="audio"></audio>
         <div id="webcam"></div>
-        <button onClick={this.validate}>
+        <button className='btn' onClick={this.validate}>
           Validate
         </button>
       </div>
@@ -45,15 +47,18 @@ class Login extends React.Component {
   validate() {
     Webcam.snap((data_uri) => {
       let buf = new Buffer(data_uri.replace(/^data:image\/\w+;base64,/, ""),'base64');
-      Promise.resolve(AWSUtil.compareFaces(buf)).then((data) => {
+      Promise.resolve(
+        AWSUtil.compareFaces(buf)
+      ).then((data) => {
         if(data){
           pollySpeak('Validation passed. Welcome Mr President.');
+          Webcam.reset();
           hashHistory.push('/code');
         } else {
           pollySpeak('Validation failed.');
         }
       }).catch((err) => {
-        pollySpeak('Validation failed.');
+        pollySpeak('Validation failed. I was unable to compare your face.');
       });
     });
   }

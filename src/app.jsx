@@ -7,6 +7,7 @@ import { Router, Route, IndexRoute, hashHistory, Link }  from 'react-router'
 import Code  from './components/Code/Code.jsx';
 import Login from './components/Login/Login.jsx';
 
+// App Component
 class App extends React.Component {
   render() {
     return (
@@ -23,6 +24,7 @@ const Routes = (
   </Route>
 )
 
+// Render
 ReactDOM.render(
   <Router history={hashHistory} routes={Routes} />,
   document.getElementById('app')

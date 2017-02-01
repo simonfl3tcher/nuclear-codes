@@ -1,4 +1,3 @@
-const debug    = process.env.NODE_ENV !== "production";
 const webpack  = require('webpack');
 const path     = require('path');
 
@@ -6,7 +5,7 @@ const SRC_DIR  = path.resolve(__dirname, './src/')
 const DIST_DIR = path.resolve(__dirname, '.')
 
 module.exports = {
-  devtool: debug ? "source-map" : null,
+  devtool: "source-map",
   entry:  SRC_DIR + "/app.jsx",
   resolveLoader: {
     modules: ['node_modules', __dirname + '/client/node_modules'],
@@ -48,7 +47,8 @@ module.exports = {
   },
   output: {
     path: __dirname + '/public/assets',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: './public/assets/'
   },
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),

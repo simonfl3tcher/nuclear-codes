@@ -1,4 +1,18 @@
+@import '../../_setup';
+
 .webcam {
   width:100%;
   height:100%;
+}
+
+.btn {
+  margin-top: 20px;
+  display: block;
+  width: 50%;
+  margin: 40px auto;
+  height: 50px;
+  color: #ffffff;
+  background-color: #1F2D3D;
+  border: 1px solid #ffffff;
+  text-transform: uppercase;
 }

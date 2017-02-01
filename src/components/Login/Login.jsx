@@ -8,6 +8,8 @@ import * as play from 'audio-play';
 import { Link, hashHistory } from 'react-router'
 
 import AWSUtil from '../../utils/awsUtil.js'
+import Hourglass from '../Hourglass/Hourglass.jsx'
+import Button from '../Button/Button.jsx'
 
 function pollySpeak(string) {
   let audioElement = document.getElementById('audio');
@@ -25,6 +27,13 @@ function pollySpeak(string) {
 
 // Component
 class Login extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      validating: false
+    };
+    this.validate = this.validate.bind(this);
+  }
   componentDidMount() {
     Webcam.set({
       width: 800,
@@ -34,22 +43,29 @@ class Login extends React.Component {
     pollySpeak("Please present your face!");
   }
   render() {
+    var component
+    if(this.state.validating) {
+      component = <Hourglass />
+    } else {
+      component = <Button clickHandler={this.validate} text="Validate" />
+    }
+
     return (
       <div>
         <audio id="audio"></audio>
         <div id="webcam"></div>
-        <button className='btn' onClick={this.validate}>
-          Validate
-        </button>
+        { component }
       </div>
     )
   }
   validate() {
     Webcam.snap((data_uri) => {
+      this.setState({ validating: true });
       let buf = new Buffer(data_uri.replace(/^data:image\/\w+;base64,/, ""),'base64');
       Promise.resolve(
         AWSUtil.compareFaces(buf)
       ).then((data) => {
+        this.setState({ validating: true });
         if(data){
           pollySpeak('Validation passed. Welcome Mr President.');
           Webcam.reset();
@@ -58,9 +74,10 @@ class Login extends React.Component {
           pollySpeak('Validation failed.');
         }
       }).catch((err) => {
+        this.setState({ validating: true });
         pollySpeak('Validation failed. I was unable to compare your face.');
       });
-    });
+    })
   }
 }
 

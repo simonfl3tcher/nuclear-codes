@@ -1,3 +1,4 @@
+const debug    = process.env.NODE_ENV !== "production";
 const webpack  = require('webpack');
 const path     = require('path');
 
@@ -5,7 +6,7 @@ const SRC_DIR  = path.resolve(__dirname, './src/')
 const DIST_DIR = path.resolve(__dirname, '.')
 
 module.exports = {
-  devtool: "source-map",
+  devtool: debug ? "source-map" : null,
   entry:  SRC_DIR + "/app.jsx",
   resolveLoader: {
     modules: ['node_modules', __dirname + '/client/node_modules'],

@@ -1,0 +1,13 @@
+@import '../../_setup';
+
+.btn {
+  margin-top: 20px;
+  display: block;
+  width: 50%;
+  margin: 40px auto;
+  height: 50px;
+  color: $brand2;
+  background-color: $brand1;
+  border: 1px solid $brand2;
+  text-transform: uppercase;
+}

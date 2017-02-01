@@ -1,0 +1,49 @@
+@import '../../_setup';
+
+.hourglass{
+    display:block;
+    background: $brand1;
+    margin:3em auto;
+    width:1em;
+    height:2em;
+    box-shadow:
+        inset $brand1 0 0 0 0,
+        inset $brand2 0 2em 0 0,
+        inset $brand1 0 0 4em 0;
+    animation:hourglass 1s linear infinite;
+}
+
+.outer{
+    fill:$brand2;
+}
+
+.middle{
+    fill:$brand1;
+}
+
+@keyframes hourglass{
+    0%{
+        transform:rotate(0deg);
+        box-shadow:
+            inset $brand1 0 0 0 0,
+            inset $brand2 0 2em 0 0,
+            inset $brand1 0 4em 0 0,
+            inset $brand2 0 4em 0 0;
+    }
+    80%{
+        transform:rotate(0deg);
+        box-shadow:
+            inset $brand1 0 2em 0 0,
+            inset $brand2 0 2em 0 0,
+            inset $brand1 0 2em 0 0,
+            inset $brand2 0 4em 0 0;
+    }
+    100%{
+        transform:rotate(180deg);
+        box-shadow:
+            inset $brand1 0 2em 0 0,
+            inset $brand2 0 2em 0 0,
+            inset $brand1 0 2em 0 0,
+            inset $brand2 0 4em 0 0;
+    }
+}

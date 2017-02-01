@@ -62,7 +62,7 @@
 	
 	var _Code2 = _interopRequireDefault(_Code);
 	
-	var _Login = __webpack_require__(242);
+	var _Login = __webpack_require__(241);
 	
 	var _Login2 = _interopRequireDefault(_Login);
 	
@@ -26595,7 +26595,7 @@
 	
 	__webpack_require__(234);
 	
-	var _nuclearBomb = __webpack_require__(238);
+	var _nuclearBomb = __webpack_require__(237);
 	
 	var _nuclearBomb2 = _interopRequireDefault(_nuclearBomb);
 	
@@ -26603,13 +26603,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactInterval = __webpack_require__(239);
+	var _reactInterval = __webpack_require__(238);
 	
 	var _reactInterval2 = _interopRequireDefault(_reactInterval);
 	
-	var _webcamjs = __webpack_require__(241);
+	var _webcamjs = __webpack_require__(240);
 	
 	var _webcamjs2 = _interopRequireDefault(_webcamjs);
+	
+	var _reactRouter = __webpack_require__(178);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -26623,7 +26625,13 @@
 	// JS
 	
 	
+	function generateRandomNumber() {
+	  var num = Math.floor(Math.random() * 90000) + 10000000;
+	  return num.toString();
+	}
+	
 	// Component
+	
 	var Code = function (_React$Component) {
 	  _inherits(Code, _React$Component);
 	
@@ -26634,7 +26642,7 @@
 	
 	    _webcamjs2.default.reset();
 	    _this.state = {
-	      code: _this.generateSecretCode()
+	      codes: _this.generateSecretCode()
 	    };
 	    return _this;
 	  }
@@ -26642,8 +26650,9 @@
 	  _createClass(Code, [{
 	    key: 'generateSecretCode',
 	    value: function generateSecretCode() {
-	      var num = Math.floor(Math.random() * 90000) + 100000;
-	      return num.toString().match(/.{1,3}/g).join(' ');
+	      return Array.apply(null, Array(4)).map(function (_) {
+	        return generateRandomNumber();
+	      });
 	    }
 	  }, {
 	    key: 'render',
@@ -26660,14 +26669,38 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'code' },
-	            this.state.code,
-	            _react2.default.createElement(_reactInterval2.default, { timeout: 5000, enabled: true,
-	              callback: function callback() {
-	                return _this2.setState({ code: _this2.generateSecretCode() });
-	              } })
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'codesWrapper' },
+	              this.state.codes.map(function (code, i) {
+	                return _react2.default.createElement(
+	                  'div',
+	                  { key: i },
+	                  code
+	                );
+	              }),
+	              _react2.default.createElement(_reactInterval2.default, { timeout: 5000, enabled: true,
+	                callback: function callback() {
+	                  return _this2.setState({ code: _this2.generateSecretCode() });
+	                } })
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'small',
+	            null,
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: '/' },
+	              'Logout'
+	            )
 	          )
 	        )
 	      );
+	    }
+	  }, {
+	    key: 'logout',
+	    value: function logout() {
+	      _reactRouter.hashHistory.push('/login');
 	    }
 	  }]);
 	
@@ -26686,7 +26719,7 @@
 	var content = __webpack_require__(235);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(237)(content, {});
+	var update = __webpack_require__(236)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -26706,74 +26739,18 @@
 /* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(236)();
+	exports = module.exports = __webpack_require__(248)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Cabin);", ""]);
 	
 	// module
-	exports.push([module.id, "* {\n  font-family: 'Cabin', sans-serif; }\n\nbody {\n  background-color: #1F2D3D;\n  margin: 0px; }\n\n.centered {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  /* bring your own prefixes */\n  transform: translate(-50%, -50%); }\n\n.bomb {\n  width: 120px;\n  height: 170px;\n  display: block;\n  margin: 0 auto; }\n\n.code {\n  color: #ffffff;\n  font-size: 50px;\n  font-weight: bold;\n  margin-top: 30px;\n  text-align: center;\n  font-family: helvetica; }\n", "", {"version":3,"sources":["/./src/components/Code/src/_setup.scss","/./src/components/Code/src/components/Code/Code.scss"],"names":[],"mappings":"AAEA;EACE,iCAAgC,EACjC;;AAED;EACE,0BAAyB;EACzB,YAAU,EACX;;ACPD;EACE,gBAAe;EACf,SAAQ;EACR,UAAS;EACT,6BAA6B;EAC7B,iCAAgC,EACjC;;AAED;EACE,aAAY;EACZ,cAAa;EACb,eAAc;EACd,eAAc,EACf;;AAED;EACE,eAAc;EACd,gBAAe;EACf,kBAAiB;EACjB,iBAAgB;EAChB,mBAAkB;EAClB,uBAAsB,EACvB","file":"Code.scss","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Cabin');\n\n* {\n  font-family: 'Cabin', sans-serif;\n}\n\nbody {\n  background-color: #1F2D3D;\n  margin:0px;\n}\n","@import '../../_setup';\n\n.centered {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  /* bring your own prefixes */\n  transform: translate(-50%, -50%);\n}\n\n.bomb {\n  width: 120px;\n  height: 170px;\n  display: block;\n  margin: 0 auto;\n}\n\n.code {\n  color: #ffffff;\n  font-size: 50px;\n  font-weight: bold;\n  margin-top: 30px;\n  text-align: center;\n  font-family: helvetica;\n}\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "* {\n  font-family: 'Cabin', sans-serif; }\n\nbody {\n  background-color: #1F2D3D;\n  margin: 0px; }\n\n.centered {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  /* bring your own prefixes */\n  transform: translate(-50%, -50%);\n  text-align: center; }\n  .centered > .bomb {\n    width: 100px;\n    height: 150px;\n    display: block;\n    margin: 0 auto; }\n  .centered .code {\n    color: #FFFFFF;\n    font-size: 50px;\n    font-weight: bold;\n    margin-top: 30px;\n    text-align: center; }\n    .centered .code .codesWrapper {\n      text-align: center; }\n      .centered .code .codesWrapper > div {\n        word-spacing: 5px;\n        margin: 15px auto; }\n  .centered > small > a {\n    color: #FFFFFF; }\n", "", {"version":3,"sources":["/./src/components/Code/src/_setup.scss","/./src/components/Code/src/components/Code/Code.scss"],"names":[],"mappings":"AAKA;EACE,iCAAgC,EACjC;;AAED;EACE,0BARc;EASd,YAAU,EACX;;ACVD;EACE,gBAAe;EACf,SAAQ;EACR,UAAS;EACT,6BAA6B;EAC7B,iCAAgC;EAChC,mBAAkB,EA4BnB;EAlCD;IASI,aAAY;IACZ,cAAa;IACb,eAAc;IACd,eAAc,EACf;EAbH;IAgBI,eDfY;ICgBZ,gBAAe;IACf,kBAAiB;IACjB,iBAAgB;IAChB,mBAAkB,EASnB;IA7BH;MAuBM,mBAAkB,EAKnB;MA5BL;QAyBQ,kBAAiB;QACjB,kBAAiB,EAClB;EA3BP;IAgCI,eD/BY,ECgCb","file":"Code.scss","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Cabin');\n\n$brand1: #1F2D3D;\n$brand2: #FFFFFF;\n\n* {\n  font-family: 'Cabin', sans-serif;\n}\n\nbody {\n  background-color: $brand1;\n  margin:0px;\n}\n","@import '../../_setup';\n\n.centered {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  /* bring your own prefixes */\n  transform: translate(-50%, -50%);\n  text-align: center;\n\n  > .bomb {\n    width: 100px;\n    height: 150px;\n    display: block;\n    margin: 0 auto;\n  }\n\n  .code {\n    color: $brand2;\n    font-size: 50px;\n    font-weight: bold;\n    margin-top: 30px;\n    text-align: center;\n\n    .codesWrapper {\n      text-align: center;\n      > div {\n        word-spacing: 5px;\n        margin: 15px auto;\n      }\n    }\n  }\n\n  > small > a {\n    color: $brand2;\n  }\n}\n\n\n\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
 
 /***/ },
 /* 236 */
-/***/ function(module, exports) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	// css base code, injected by the css-loader
-	module.exports = function() {
-		var list = [];
-	
-		// return the list of modules as css string
-		list.toString = function toString() {
-			var result = [];
-			for(var i = 0; i < this.length; i++) {
-				var item = this[i];
-				if(item[2]) {
-					result.push("@media " + item[2] + "{" + item[1] + "}");
-				} else {
-					result.push(item[1]);
-				}
-			}
-			return result.join("");
-		};
-	
-		// import a list of modules into the list
-		list.i = function(modules, mediaQuery) {
-			if(typeof modules === "string")
-				modules = [[null, modules, ""]];
-			var alreadyImportedModules = {};
-			for(var i = 0; i < this.length; i++) {
-				var id = this[i][0];
-				if(typeof id === "number")
-					alreadyImportedModules[id] = true;
-			}
-			for(i = 0; i < modules.length; i++) {
-				var item = modules[i];
-				// skip already imported module
-				// this implementation is not 100% perfect for weird media query combinations
-				//  when a module is imported multiple times with different media queries.
-				//  I hope this will never occur (Hey this way we have smaller bundles)
-				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-					if(mediaQuery && !item[2]) {
-						item[2] = mediaQuery;
-					} else if(mediaQuery) {
-						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-					}
-					list.push(item);
-				}
-			}
-		};
-		return list;
-	};
-
-
-/***/ },
-/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -27025,18 +27002,18 @@
 
 
 /***/ },
-/* 238 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "3de8df3f736abf9353a56f7bd6d15c29.png";
 
 /***/ },
-/* 239 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var ReactInterval = __webpack_require__(240).ReactInterval;
+	var ReactInterval = __webpack_require__(239).ReactInterval;
 	
 	ReactInterval.ReactInterval = ReactInterval;
 	
@@ -27044,7 +27021,7 @@
 	//# sourceMappingURL=index.js.map
 
 /***/ },
-/* 240 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27122,7 +27099,7 @@
 	//# sourceMappingURL=Component.js.map
 
 /***/ },
-/* 241 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;// WebcamJS v1.0.16
@@ -27914,7 +27891,7 @@
 
 
 /***/ },
-/* 242 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer) {'use strict';
@@ -27925,13 +27902,13 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	__webpack_require__(247);
+	__webpack_require__(246);
 	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _webcamjs = __webpack_require__(241);
+	var _webcamjs = __webpack_require__(240);
 	
 	var _webcamjs2 = _interopRequireDefault(_webcamjs);
 	
@@ -27944,6 +27921,14 @@
 	var _awsUtil = __webpack_require__(253);
 	
 	var _awsUtil2 = _interopRequireDefault(_awsUtil);
+	
+	var _Hourglass = __webpack_require__(256);
+	
+	var _Hourglass2 = _interopRequireDefault(_Hourglass);
+	
+	var _Button = __webpack_require__(259);
+	
+	var _Button2 = _interopRequireDefault(_Button);
 	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
@@ -27980,7 +27965,13 @@
 	  function Login() {
 	    _classCallCheck(this, Login);
 	
-	    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this));
+	
+	    _this.state = {
+	      validating: false
+	    };
+	    _this.validate = _this.validate.bind(_this);
+	    return _this;
 	  }
 	
 	  _createClass(Login, [{
@@ -27996,24 +27987,31 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var component;
+	      if (this.state.validating) {
+	        component = _react2.default.createElement(_Hourglass2.default, null);
+	      } else {
+	        component = _react2.default.createElement(_Button2.default, { clickHandler: this.validate, text: 'Validate' });
+	      }
+	
 	      return _react2.default.createElement(
 	        'div',
 	        null,
 	        _react2.default.createElement('audio', { id: 'audio' }),
 	        _react2.default.createElement('div', { id: 'webcam' }),
-	        _react2.default.createElement(
-	          'button',
-	          { className: 'btn', onClick: this.validate },
-	          'Validate'
-	        )
+	        component
 	      );
 	    }
 	  }, {
 	    key: 'validate',
 	    value: function validate() {
+	      var _this2 = this;
+	
 	      _webcamjs2.default.snap(function (data_uri) {
+	        _this2.setState({ validating: true });
 	        var buf = new Buffer(data_uri.replace(/^data:image\/\w+;base64,/, ""), 'base64');
 	        Promise.resolve(_awsUtil2.default.compareFaces(buf)).then(function (data) {
+	          _this2.setState({ validating: true });
 	          if (data) {
 	            pollySpeak('Validation passed. Welcome Mr President.');
 	            _webcamjs2.default.reset();
@@ -28022,6 +28020,7 @@
 	            pollySpeak('Validation failed.');
 	          }
 	        }).catch(function (err) {
+	          _this2.setState({ validating: true });
 	          pollySpeak('Validation failed. I was unable to compare your face.');
 	        });
 	      });
@@ -28032,10 +28031,10 @@
 	}(_react2.default.Component);
 	
 	exports.default = Login;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(243).Buffer))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(242).Buffer))
 
 /***/ },
-/* 243 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*!
@@ -28048,9 +28047,9 @@
 	
 	'use strict'
 	
-	var base64 = __webpack_require__(244)
-	var ieee754 = __webpack_require__(245)
-	var isArray = __webpack_require__(246)
+	var base64 = __webpack_require__(243)
+	var ieee754 = __webpack_require__(244)
+	var isArray = __webpack_require__(245)
 	
 	exports.Buffer = Buffer
 	exports.SlowBuffer = SlowBuffer
@@ -29831,7 +29830,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 244 */
+/* 243 */
 /***/ function(module, exports) {
 
 	'use strict'
@@ -29951,7 +29950,7 @@
 
 
 /***/ },
-/* 245 */
+/* 244 */
 /***/ function(module, exports) {
 
 	exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -30041,7 +30040,7 @@
 
 
 /***/ },
-/* 246 */
+/* 245 */
 /***/ function(module, exports) {
 
 	var toString = {}.toString;
@@ -30052,16 +30051,16 @@
 
 
 /***/ },
-/* 247 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(248);
+	var content = __webpack_require__(247);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(237)(content, {});
+	var update = __webpack_require__(236)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -30078,17 +30077,73 @@
 	}
 
 /***/ },
-/* 248 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(236)();
+	exports = module.exports = __webpack_require__(248)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Cabin);", ""]);
 	
 	// module
-	exports.push([module.id, "* {\n  font-family: 'Cabin', sans-serif; }\n\nbody {\n  background-color: #1F2D3D;\n  margin: 0px; }\n\n.webcam {\n  width: 100%;\n  height: 100%; }\n\n.btn {\n  margin-top: 20px;\n  display: block;\n  width: 50%;\n  margin: 40px auto;\n  height: 50px;\n  color: #ffffff;\n  background-color: #1F2D3D;\n  border: 1px solid #ffffff;\n  text-transform: uppercase; }\n", "", {"version":3,"sources":["/./src/components/Login/src/_setup.scss","/./src/components/Login/src/components/Login/Login.scss"],"names":[],"mappings":"AAEA;EACE,iCAAgC,EACjC;;AAED;EACE,0BAAyB;EACzB,YAAU,EACX;;ACPD;EACE,YAAU;EACV,aAAW,EACZ;;AAED;EACE,iBAAgB;EAChB,eAAc;EACd,WAAU;EACV,kBAAiB;EACjB,aAAY;EACZ,eAAc;EACd,0BAAyB;EACzB,0BAAyB;EACzB,0BAAyB,EAC1B","file":"Login.scss","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Cabin');\n\n* {\n  font-family: 'Cabin', sans-serif;\n}\n\nbody {\n  background-color: #1F2D3D;\n  margin:0px;\n}\n","@import '../../_setup';\n\n.webcam {\n  width:100%;\n  height:100%;\n}\n\n.btn {\n  margin-top: 20px;\n  display: block;\n  width: 50%;\n  margin: 40px auto;\n  height: 50px;\n  color: #ffffff;\n  background-color: #1F2D3D;\n  border: 1px solid #ffffff;\n  text-transform: uppercase;\n}\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "* {\n  font-family: 'Cabin', sans-serif; }\n\nbody {\n  background-color: #1F2D3D;\n  margin: 0px; }\n\n.webcam {\n  width: 100%;\n  height: 100%; }\n", "", {"version":3,"sources":["/./src/components/Login/src/_setup.scss","/./src/components/Login/src/components/Login/Login.scss"],"names":[],"mappings":"AAKA;EACE,iCAAgC,EACjC;;AAED;EACE,0BARc;EASd,YAAU,EACX;;ACVD;EACE,YAAU;EACV,aAAW,EACZ","file":"Login.scss","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Cabin');\n\n$brand1: #1F2D3D;\n$brand2: #FFFFFF;\n\n* {\n  font-family: 'Cabin', sans-serif;\n}\n\nbody {\n  background-color: $brand1;\n  margin:0px;\n}\n","@import '../../_setup';\n\n.webcam {\n  width:100%;\n  height:100%;\n}\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
+
+
+/***/ },
+/* 248 */
+/***/ function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function() {
+		var list = [];
+	
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+	
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
 
 
 /***/ },
@@ -138889,6 +138944,197 @@
 		"secretAccessKey": "7QeFvgw/LpgMtsjoIGKClG5GtnqmW2ED9AXgYTiB",
 		"region": "eu-west-1"
 	};
+
+/***/ },
+/* 256 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	__webpack_require__(257);
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // CSS/Assets
+	
+	
+	// JS
+	
+	
+	var Hourglass = function (_React$Component) {
+	  _inherits(Hourglass, _React$Component);
+	
+	  function Hourglass() {
+	    _classCallCheck(this, Hourglass);
+	
+	    return _possibleConstructorReturn(this, (Hourglass.__proto__ || Object.getPrototypeOf(Hourglass)).apply(this, arguments));
+	  }
+	
+	  _createClass(Hourglass, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'svg',
+	        { className: 'hourglass', xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 120 206', preserveAspectRatio: 'none' },
+	        _react2.default.createElement('path', { className: 'middle', d: 'M120 0H0v206h120V0zM77.1 133.2C87.5 140.9 92 145 92 152.6V178H28v-25.4c0-7.6 4.5-11.7 14.9-19.4 6-4.5 13-9.6 17.1-17 4.1 7.4 11.1 12.6 17.1 17zM60 89.7c-4.1-7.3-11.1-12.5-17.1-17C32.5 65.1 28 61 28 53.4V28h64v25.4c0 7.6-4.5 11.7-14.9 19.4-6 4.4-13 9.6-17.1 16.9z' }),
+	        _react2.default.createElement('path', { className: 'outer', d: 'M93.7 95.3c10.5-7.7 26.3-19.4 26.3-41.9V0H0v53.4c0 22.5 15.8 34.2 26.3 41.9 3 2.2 7.9 5.8 9 7.7-1.1 1.9-6 5.5-9 7.7C15.8 118.4 0 130.1 0 152.6V206h120v-53.4c0-22.5-15.8-34.2-26.3-41.9-3-2.2-7.9-5.8-9-7.7 1.1-2 6-5.5 9-7.7zM70.6 103c0 18 35.4 21.8 35.4 49.6V192H14v-39.4c0-27.9 35.4-31.6 35.4-49.6S14 81.2 14 53.4V14h92v39.4C106 81.2 70.6 85 70.6 103z' })
+	      );
+	    }
+	  }]);
+	
+	  return Hourglass;
+	}(_react2.default.Component);
+	
+	exports.default = Hourglass;
+
+/***/ },
+/* 257 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(258);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(236)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./Hourglass.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./Hourglass.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 258 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(248)();
+	// imports
+	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Cabin);", ""]);
+	
+	// module
+	exports.push([module.id, "* {\n  font-family: 'Cabin', sans-serif; }\n\nbody {\n  background-color: #1F2D3D;\n  margin: 0px; }\n\n.hourglass {\n  display: block;\n  background: #1F2D3D;\n  margin: 3em auto;\n  width: 1em;\n  height: 2em;\n  box-shadow: inset #1F2D3D 0 0 0 0, inset #FFFFFF 0 2em 0 0, inset #1F2D3D 0 0 4em 0;\n  animation: hourglass 1s linear infinite; }\n\n.outer {\n  fill: #FFFFFF; }\n\n.middle {\n  fill: #1F2D3D; }\n\n@keyframes hourglass {\n  0% {\n    transform: rotate(0deg);\n    box-shadow: inset #1F2D3D 0 0 0 0, inset #FFFFFF 0 2em 0 0, inset #1F2D3D 0 4em 0 0, inset #FFFFFF 0 4em 0 0; }\n  80% {\n    transform: rotate(0deg);\n    box-shadow: inset #1F2D3D 0 2em 0 0, inset #FFFFFF 0 2em 0 0, inset #1F2D3D 0 2em 0 0, inset #FFFFFF 0 4em 0 0; }\n  100% {\n    transform: rotate(180deg);\n    box-shadow: inset #1F2D3D 0 2em 0 0, inset #FFFFFF 0 2em 0 0, inset #1F2D3D 0 2em 0 0, inset #FFFFFF 0 4em 0 0; } }\n", "", {"version":3,"sources":["/./src/components/Hourglass/src/_setup.scss","/./src/components/Hourglass/src/components/Hourglass/Hourglass.scss"],"names":[],"mappings":"AAKA;EACE,iCAAgC,EACjC;;AAED;EACE,0BARc;EASd,YAAU,EACX;;ACVD;EACI,eAAa;EACb,oBDFY;ECGZ,iBAAe;EACf,WAAS;EACT,YAAU;EACV,oFAG2B;EAC3B,wCAAsC,EACzC;;AAED;EACI,cDbY,ECcf;;AAED;EACI,cDlBY,ECmBf;;AAED;EACI;IACI,wBAAsB;IACtB,6GAI2B,EAAA;EAE/B;IACI,wBAAsB;IACtB,+GAI2B,EAAA;EAE/B;IACI,0BAAwB;IACxB,+GAI2B,EAAA,EAAA","file":"Hourglass.scss","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Cabin');\n\n$brand1: #1F2D3D;\n$brand2: #FFFFFF;\n\n* {\n  font-family: 'Cabin', sans-serif;\n}\n\nbody {\n  background-color: $brand1;\n  margin:0px;\n}\n","@import '../../_setup';\n\n.hourglass{\n    display:block;\n    background: $brand1;\n    margin:3em auto;\n    width:1em;\n    height:2em;\n    box-shadow:\n        inset $brand1 0 0 0 0,\n        inset $brand2 0 2em 0 0,\n        inset $brand1 0 0 4em 0;\n    animation:hourglass 1s linear infinite;\n}\n\n.outer{\n    fill:$brand2;\n}\n\n.middle{\n    fill:$brand1;\n}\n\n@keyframes hourglass{\n    0%{\n        transform:rotate(0deg);\n        box-shadow:\n            inset $brand1 0 0 0 0,\n            inset $brand2 0 2em 0 0,\n            inset $brand1 0 4em 0 0,\n            inset $brand2 0 4em 0 0;\n    }\n    80%{\n        transform:rotate(0deg);\n        box-shadow:\n            inset $brand1 0 2em 0 0,\n            inset $brand2 0 2em 0 0,\n            inset $brand1 0 2em 0 0,\n            inset $brand2 0 4em 0 0;\n    }\n    100%{\n        transform:rotate(180deg);\n        box-shadow:\n            inset $brand1 0 2em 0 0,\n            inset $brand2 0 2em 0 0,\n            inset $brand1 0 2em 0 0,\n            inset $brand2 0 4em 0 0;\n    }\n}\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 259 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	__webpack_require__(260);
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // CSS/Assets
+	
+	
+	// JS
+	
+	
+	var Button = function (_React$Component) {
+	  _inherits(Button, _React$Component);
+	
+	  function Button() {
+	    _classCallCheck(this, Button);
+	
+	    return _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).apply(this, arguments));
+	  }
+	
+	  _createClass(Button, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'button',
+	        { className: 'btn', onClick: this.props.clickHandler },
+	        this.props.text
+	      );
+	    }
+	  }]);
+	
+	  return Button;
+	}(_react2.default.Component);
+	
+	exports.default = Button;
+
+/***/ },
+/* 260 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(261);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(236)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./Button.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js?sourceMap!./../../../node_modules/sass-loader/index.js?sourceMap!./Button.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 261 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(248)();
+	// imports
+	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Cabin);", ""]);
+	
+	// module
+	exports.push([module.id, "* {\n  font-family: 'Cabin', sans-serif; }\n\nbody {\n  background-color: #1F2D3D;\n  margin: 0px; }\n\n.btn {\n  margin-top: 20px;\n  display: block;\n  width: 50%;\n  margin: 40px auto;\n  height: 50px;\n  color: #FFFFFF;\n  background-color: #1F2D3D;\n  border: 1px solid #FFFFFF;\n  text-transform: uppercase; }\n", "", {"version":3,"sources":["/./src/components/Button/src/_setup.scss","/./src/components/Button/src/components/Button/Button.scss"],"names":[],"mappings":"AAKA;EACE,iCAAgC,EACjC;;AAED;EACE,0BARc;EASd,YAAU,EACX;;ACVD;EACE,iBAAgB;EAChB,eAAc;EACd,WAAU;EACV,kBAAiB;EACjB,aAAY;EACZ,eDLc;ECMd,0BDPc;ECQd,0BDPc;ECQd,0BAAyB,EAC1B","file":"Button.scss","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Cabin');\n\n$brand1: #1F2D3D;\n$brand2: #FFFFFF;\n\n* {\n  font-family: 'Cabin', sans-serif;\n}\n\nbody {\n  background-color: $brand1;\n  margin:0px;\n}\n","@import '../../_setup';\n\n.btn {\n  margin-top: 20px;\n  display: block;\n  width: 50%;\n  margin: 40px auto;\n  height: 50px;\n  color: $brand2;\n  background-color: $brand1;\n  border: 1px solid $brand2;\n  text-transform: uppercase;\n}\n"],"sourceRoot":"webpack://"}]);
+	
+	// exports
+
 
 /***/ }
 /******/ ]);

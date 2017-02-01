@@ -6,6 +6,12 @@ import bomb from './nuclear-bomb.png';
 import React from 'react';
 import ReactInterval from 'react-interval';
 import Webcam from 'webcamjs';
+import { Link, hashHistory } from 'react-router'
+
+function generateRandomNumber() {
+  var num = Math.floor(Math.random()*90000) + 10000000;
+  return num.toString()
+}
 
 // Component
 class Code extends React.Component {
@@ -13,12 +19,11 @@ class Code extends React.Component {
     super(props);
     Webcam.reset();
     this.state = {
-      code: this.generateSecretCode()
+      codes: this.generateSecretCode()
     };
   }
   generateSecretCode() {
-    var num = Math.floor(Math.random()*90000) + 100000;
-    return num.toString().match(/.{1,3}/g).join(' ');
+    return Array.apply(null, Array(4)).map((_) => { return generateRandomNumber() });
   }
   render() {
     return (
@@ -26,13 +31,21 @@ class Code extends React.Component {
         <div className="centered">
           <img src={bomb} className="bomb" alt="bomb" />
           <div className="code">
-            { this.state.code }
-            <ReactInterval timeout={5000} enabled={true}
+            <div className="codesWrapper">
+              { this.state.codes.map((code, i) => <div key={i}>{code}</div>) }
+              <ReactInterval timeout={5000} enabled={true}
               callback={ () => this.setState({ code: this.generateSecretCode() }) } />
+            </div>
           </div>
+          <small>
+            <Link to={`/`}>Logout</Link>
+          </small>
         </div>
       </div>
     )
+  }
+  logout() {
+    hashHistory.push('/login');
   }
 }
 

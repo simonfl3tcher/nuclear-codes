@@ -6,20 +6,35 @@
   left: 50%;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
-}
-
-.bomb {
-  width: 120px;
-  height: 170px;
-  display: block;
-  margin: 0 auto;
-}
-
-.code {
-  color: #ffffff;
-  font-size: 50px;
-  font-weight: bold;
-  margin-top: 30px;
   text-align: center;
-  font-family: helvetica;
+
+  > .bomb {
+    width: 100px;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .code {
+    color: $brand2;
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 30px;
+    text-align: center;
+
+    .codesWrapper {
+      text-align: center;
+      > div {
+        word-spacing: 5px;
+        margin: 15px auto;
+      }
+    }
+  }
+
+  > small > a {
+    color: $brand2;
+  }
 }
+
+
+

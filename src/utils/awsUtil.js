@@ -6,8 +6,8 @@ AWS.config.update(aws_config);
 
 var AWSUtil = (function() {
   const bucket      = 'rekognitionnn';
-  const sourceImage = 'nuclear/potential_imposter.jpg';
-  const targetImage = 'nuclear/president.jpg';
+  const sourceImage = 'nuclear-codes/potential_imposter.jpg';
+  const targetImage = 'nuclear-codes/president.jpg';
 
   let S3          = new AWS.S3( { params: { Bucket: bucket } } );
   let rekognition = new AWS.Rekognition();

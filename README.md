@@ -1,4 +1,4 @@
-### Nuclear Codes
+## Nuclear Codes
 
 #### What is nuclear codes?
 
@@ -16,7 +16,7 @@ This was a simple task to develop further skills in React and test out the AWS A
 - [AWS Rekognition](https://aws.amazon.com/de/rekognition/) - used for comparing the given face with the "presidents" face.
 - [AWS Polly](https://aws.amazon.com/polly/) - used for the voice prompts.
 
-- How can I try it out?
+#### How can I try it out?
 
 1. Create an AWS account and make sure your user has S3, Rekognition and Polly read and write access. See [this](https://aws.amazon.com/account/) and [this](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_permissions.html) if you are unsure how to get this set up.
 

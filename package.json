@@ -7,8 +7,7 @@
     "watch": "webpack --watch --progress --debug",
     "build": "webpack --progress",
     "app": "electron .",
-    "test": "mocha \"src/**/*.spec.js\"",
-    "flow": "flow; test $? -eq 0 -o $? -eq 2"
+    "test": "mocha \"src/**/*.spec.js\""
   },
   "standard": {
     "env": [

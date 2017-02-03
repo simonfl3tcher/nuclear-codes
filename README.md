@@ -20,7 +20,7 @@ This was a simple task to develop further skills in React and a chance to try ou
 
 1. Create an AWS account and make sure your user has S3, Rekognition and Polly read and write access. See [this](https://aws.amazon.com/account/) and [this](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_permissions.html) if you are unsure how to get this set up.
 
-2. In the AWS console create an S3 bucket with the name of `rekognitionnn-mysecret`. Change `mysecret` to be unique to your account.
+2. In the AWS console create an S3 bucket with the name of `rekognitionnn-{mysecret}`. Change `mysecret` to be unique to your account.
 
 3. Upload your "president" image. Make sure you change the `president.jpg` file in the repo to be a clear picture of your face.
 Then from the root directory, run:
@@ -32,7 +32,7 @@ Then from the root directory, run:
 4. Copy the `aws_config.json.example` into `aws_config.json` and update the details to be the security credential of the user you are using in the `aws_config.json` file.
 
 ```
-cp aws_config.json.example aws_config.json
+aws cp aws_config.json.example aws_config.json
 ```
 
 5. The bucket name is kept as a constant in our `AWSUtil` module. So go over there and make sure you update [this](https://github.com/simonfl3tcher/nuclear-codes/blob/master/src/utils/awsUtil.js#L8) line with the bucket name you created in point two.

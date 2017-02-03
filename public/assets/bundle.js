@@ -62,7 +62,7 @@
 	
 	var _Code2 = _interopRequireDefault(_Code);
 	
-	var _Login = __webpack_require__(241);
+	var _Login = __webpack_require__(242);
 	
 	var _Login2 = _interopRequireDefault(_Login);
 	
@@ -26595,7 +26595,7 @@
 	
 	__webpack_require__(234);
 	
-	var _nuclearBomb = __webpack_require__(237);
+	var _nuclearBomb = __webpack_require__(238);
 	
 	var _nuclearBomb2 = _interopRequireDefault(_nuclearBomb);
 	
@@ -26603,11 +26603,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactInterval = __webpack_require__(238);
+	var _reactInterval = __webpack_require__(239);
 	
 	var _reactInterval2 = _interopRequireDefault(_reactInterval);
 	
-	var _webcamjs = __webpack_require__(240);
+	var _webcamjs = __webpack_require__(241);
 	
 	var _webcamjs2 = _interopRequireDefault(_webcamjs);
 	
@@ -26719,7 +26719,7 @@
 	var content = __webpack_require__(235);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(236)(content, {});
+	var update = __webpack_require__(237)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -26739,18 +26739,74 @@
 /* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(248)();
+	exports = module.exports = __webpack_require__(236)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Cabin);", ""]);
 	
 	// module
-	exports.push([module.id, "* {\n  font-family: 'Cabin', sans-serif; }\n\nbody {\n  background-color: #1F2D3D;\n  margin: 0px; }\n\n.centered {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  /* bring your own prefixes */\n  transform: translate(-50%, -50%);\n  text-align: center; }\n  .centered > .bomb {\n    width: 100px;\n    height: 150px;\n    display: block;\n    margin: 0 auto; }\n  .centered .code {\n    color: #FFFFFF;\n    font-size: 50px;\n    font-weight: bold;\n    margin-top: 30px;\n    text-align: center; }\n    .centered .code .codesWrapper {\n      text-align: center; }\n      .centered .code .codesWrapper > div {\n        word-spacing: 5px;\n        margin: 15px auto; }\n  .centered > small > a {\n    color: #FFFFFF; }\n", "", {"version":3,"sources":["/./src/components/Code/src/_setup.scss","/./src/components/Code/src/components/Code/Code.scss"],"names":[],"mappings":"AAKA;EACE,iCAAgC,EACjC;;AAED;EACE,0BARc;EASd,YAAU,EACX;;ACVD;EACE,gBAAe;EACf,SAAQ;EACR,UAAS;EACT,6BAA6B;EAC7B,iCAAgC;EAChC,mBAAkB,EA4BnB;EAlCD;IASI,aAAY;IACZ,cAAa;IACb,eAAc;IACd,eAAc,EACf;EAbH;IAgBI,eDfY;ICgBZ,gBAAe;IACf,kBAAiB;IACjB,iBAAgB;IAChB,mBAAkB,EASnB;IA7BH;MAuBM,mBAAkB,EAKnB;MA5BL;QAyBQ,kBAAiB;QACjB,kBAAiB,EAClB;EA3BP;IAgCI,eD/BY,ECgCb","file":"Code.scss","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Cabin');\n\n$brand1: #1F2D3D;\n$brand2: #FFFFFF;\n\n* {\n  font-family: 'Cabin', sans-serif;\n}\n\nbody {\n  background-color: $brand1;\n  margin:0px;\n}\n","@import '../../_setup';\n\n.centered {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  /* bring your own prefixes */\n  transform: translate(-50%, -50%);\n  text-align: center;\n\n  > .bomb {\n    width: 100px;\n    height: 150px;\n    display: block;\n    margin: 0 auto;\n  }\n\n  .code {\n    color: $brand2;\n    font-size: 50px;\n    font-weight: bold;\n    margin-top: 30px;\n    text-align: center;\n\n    .codesWrapper {\n      text-align: center;\n      > div {\n        word-spacing: 5px;\n        margin: 15px auto;\n      }\n    }\n  }\n\n  > small > a {\n    color: $brand2;\n  }\n}\n\n\n\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "* {\n  font-family: Helvetica, Arial, sans-serif; }\n\nbody {\n  background-color: #1F2D3D;\n  margin: 0px; }\n\n.centered {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  /* bring your own prefixes */\n  transform: translate(-50%, -50%);\n  text-align: center; }\n  .centered > .bomb {\n    width: 100px;\n    height: 150px;\n    display: block;\n    margin: 0 auto; }\n  .centered .code {\n    color: #FFFFFF;\n    font-size: 50px;\n    font-weight: bold;\n    margin-top: 30px;\n    text-align: center; }\n    .centered .code .codesWrapper {\n      text-align: center; }\n      .centered .code .codesWrapper > div {\n        word-spacing: 5px;\n        margin: 15px auto; }\n  .centered > small > a {\n    color: #FFFFFF; }\n", "", {"version":3,"sources":["/./src/components/Code/src/_setup.scss","/./src/components/Code/src/components/Code/Code.scss"],"names":[],"mappings":"AAMA;EACE,0CAH6C,EAI9C;;AAED;EACE,0BATc;EAUd,YAAU,EACX;;ACXD;EACE,gBAAe;EACf,SAAQ;EACR,UAAS;EACT,6BAA6B;EAC7B,iCAAgC;EAChC,mBAAkB,EA4BnB;EAlCD;IASI,aAAY;IACZ,cAAa;IACb,eAAc;IACd,eAAc,EACf;EAbH;IAgBI,eDfY;ICgBZ,gBAAe;IACf,kBAAiB;IACjB,iBAAgB;IAChB,mBAAkB,EASnB;IA7BH;MAuBM,mBAAkB,EAKnB;MA5BL;QAyBQ,kBAAiB;QACjB,kBAAiB,EAClB;EA3BP;IAgCI,eD/BY,ECgCb","file":"Code.scss","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Cabin');\n\n$brand1: #1F2D3D;\n$brand2: #FFFFFF;\n$sans-serif-stack: Helvetica, Arial, sans-serif;\n\n* {\n  font-family: $sans-serif-stack;\n}\n\nbody {\n  background-color: $brand1;\n  margin:0px;\n}\n","@import '../../_setup';\n\n.centered {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  /* bring your own prefixes */\n  transform: translate(-50%, -50%);\n  text-align: center;\n\n  > .bomb {\n    width: 100px;\n    height: 150px;\n    display: block;\n    margin: 0 auto;\n  }\n\n  .code {\n    color: $brand2;\n    font-size: 50px;\n    font-weight: bold;\n    margin-top: 30px;\n    text-align: center;\n\n    .codesWrapper {\n      text-align: center;\n      > div {\n        word-spacing: 5px;\n        margin: 15px auto;\n      }\n    }\n  }\n\n  > small > a {\n    color: $brand2;\n  }\n}\n\n\n\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
 
 /***/ },
 /* 236 */
+/***/ function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function() {
+		var list = [];
+	
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+	
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+
+/***/ },
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -27002,18 +27058,18 @@
 
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "3de8df3f736abf9353a56f7bd6d15c29.png";
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var ReactInterval = __webpack_require__(239).ReactInterval;
+	var ReactInterval = __webpack_require__(240).ReactInterval;
 	
 	ReactInterval.ReactInterval = ReactInterval;
 	
@@ -27021,7 +27077,7 @@
 	//# sourceMappingURL=index.js.map
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27099,7 +27155,7 @@
 	//# sourceMappingURL=Component.js.map
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;// WebcamJS v1.0.16
@@ -27891,7 +27947,7 @@
 
 
 /***/ },
-/* 241 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer) {'use strict';
@@ -27902,13 +27958,13 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	__webpack_require__(246);
+	__webpack_require__(247);
 	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _webcamjs = __webpack_require__(240);
+	var _webcamjs = __webpack_require__(241);
 	
 	var _webcamjs2 = _interopRequireDefault(_webcamjs);
 	
@@ -27987,7 +28043,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var component;
+	      var component = null;
 	      if (this.state.validating) {
 	        component = _react2.default.createElement(_Hourglass2.default, null);
 	      } else {
@@ -28011,16 +28067,17 @@
 	        _this2.setState({ validating: true });
 	        var buf = new Buffer(data_uri.replace(/^data:image\/\w+;base64,/, ""), 'base64');
 	        Promise.resolve(_awsUtil2.default.compareFaces(buf)).then(function (data) {
-	          _this2.setState({ validating: true });
+	          _this2.setState({ validating: false });
 	          if (data) {
 	            pollySpeak('Validation passed. Welcome Mr President.');
 	            _webcamjs2.default.reset();
 	            _reactRouter.hashHistory.push('/code');
 	          } else {
+	            console.log(_this2.state);
 	            pollySpeak('Validation failed.');
 	          }
 	        }).catch(function (err) {
-	          _this2.setState({ validating: true });
+	          _this2.setState({ validating: false });
 	          pollySpeak('Validation failed. I was unable to compare your face.');
 	        });
 	      });
@@ -28031,10 +28088,10 @@
 	}(_react2.default.Component);
 	
 	exports.default = Login;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(242).Buffer))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(243).Buffer))
 
 /***/ },
-/* 242 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*!
@@ -28047,9 +28104,9 @@
 	
 	'use strict'
 	
-	var base64 = __webpack_require__(243)
-	var ieee754 = __webpack_require__(244)
-	var isArray = __webpack_require__(245)
+	var base64 = __webpack_require__(244)
+	var ieee754 = __webpack_require__(245)
+	var isArray = __webpack_require__(246)
 	
 	exports.Buffer = Buffer
 	exports.SlowBuffer = SlowBuffer
@@ -29830,7 +29887,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 243 */
+/* 244 */
 /***/ function(module, exports) {
 
 	'use strict'
@@ -29950,7 +30007,7 @@
 
 
 /***/ },
-/* 244 */
+/* 245 */
 /***/ function(module, exports) {
 
 	exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -30040,7 +30097,7 @@
 
 
 /***/ },
-/* 245 */
+/* 246 */
 /***/ function(module, exports) {
 
 	var toString = {}.toString;
@@ -30051,16 +30108,16 @@
 
 
 /***/ },
-/* 246 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(247);
+	var content = __webpack_require__(248);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(236)(content, {});
+	var update = __webpack_require__(237)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -30077,73 +30134,17 @@
 	}
 
 /***/ },
-/* 247 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(248)();
+	exports = module.exports = __webpack_require__(236)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Cabin);", ""]);
 	
 	// module
-	exports.push([module.id, "* {\n  font-family: 'Cabin', sans-serif; }\n\nbody {\n  background-color: #1F2D3D;\n  margin: 0px; }\n\n.webcam {\n  width: 100%;\n  height: 100%; }\n", "", {"version":3,"sources":["/./src/components/Login/src/_setup.scss","/./src/components/Login/src/components/Login/Login.scss"],"names":[],"mappings":"AAKA;EACE,iCAAgC,EACjC;;AAED;EACE,0BARc;EASd,YAAU,EACX;;ACVD;EACE,YAAU;EACV,aAAW,EACZ","file":"Login.scss","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Cabin');\n\n$brand1: #1F2D3D;\n$brand2: #FFFFFF;\n\n* {\n  font-family: 'Cabin', sans-serif;\n}\n\nbody {\n  background-color: $brand1;\n  margin:0px;\n}\n","@import '../../_setup';\n\n.webcam {\n  width:100%;\n  height:100%;\n}\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "* {\n  font-family: Helvetica, Arial, sans-serif; }\n\nbody {\n  background-color: #1F2D3D;\n  margin: 0px; }\n\n.webcam {\n  width: 100%;\n  height: 100%; }\n", "", {"version":3,"sources":["/./src/components/Login/src/_setup.scss","/./src/components/Login/src/components/Login/Login.scss"],"names":[],"mappings":"AAMA;EACE,0CAH6C,EAI9C;;AAED;EACE,0BATc;EAUd,YAAU,EACX;;ACXD;EACE,YAAU;EACV,aAAW,EACZ","file":"Login.scss","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Cabin');\n\n$brand1: #1F2D3D;\n$brand2: #FFFFFF;\n$sans-serif-stack: Helvetica, Arial, sans-serif;\n\n* {\n  font-family: $sans-serif-stack;\n}\n\nbody {\n  background-color: $brand1;\n  margin:0px;\n}\n","@import '../../_setup';\n\n.webcam {\n  width:100%;\n  height:100%;\n}\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
-
-
-/***/ },
-/* 248 */
-/***/ function(module, exports) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	// css base code, injected by the css-loader
-	module.exports = function() {
-		var list = [];
-	
-		// return the list of modules as css string
-		list.toString = function toString() {
-			var result = [];
-			for(var i = 0; i < this.length; i++) {
-				var item = this[i];
-				if(item[2]) {
-					result.push("@media " + item[2] + "{" + item[1] + "}");
-				} else {
-					result.push(item[1]);
-				}
-			}
-			return result.join("");
-		};
-	
-		// import a list of modules into the list
-		list.i = function(modules, mediaQuery) {
-			if(typeof modules === "string")
-				modules = [[null, modules, ""]];
-			var alreadyImportedModules = {};
-			for(var i = 0; i < this.length; i++) {
-				var id = this[i][0];
-				if(typeof id === "number")
-					alreadyImportedModules[id] = true;
-			}
-			for(i = 0; i < modules.length; i++) {
-				var item = modules[i];
-				// skip already imported module
-				// this implementation is not 100% perfect for weird media query combinations
-				//  when a module is imported multiple times with different media queries.
-				//  I hope this will never occur (Hey this way we have smaller bundles)
-				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-					if(mediaQuery && !item[2]) {
-						item[2] = mediaQuery;
-					} else if(mediaQuery) {
-						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-					}
-					list.push(item);
-				}
-			}
-		};
-		return list;
-	};
 
 
 /***/ },
@@ -30315,8 +30316,8 @@
 	
 	var AWSUtil = function () {
 	  var bucket = 'rekognitionnn';
-	  var sourceImage = 'nuclear/potential_imposter.jpg';
-	  var targetImage = 'nuclear/president.jpg';
+	  var sourceImage = 'nuclear-codes/potential_imposter.jpg';
+	  var targetImage = 'nuclear-codes/president.jpg';
 	
 	  var S3 = new AWS.S3({ params: { Bucket: bucket } });
 	  var rekognition = new AWS.Rekognition();
@@ -139011,7 +139012,7 @@
 	var content = __webpack_require__(258);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(236)(content, {});
+	var update = __webpack_require__(237)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -139031,12 +139032,12 @@
 /* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(248)();
+	exports = module.exports = __webpack_require__(236)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Cabin);", ""]);
 	
 	// module
-	exports.push([module.id, "* {\n  font-family: 'Cabin', sans-serif; }\n\nbody {\n  background-color: #1F2D3D;\n  margin: 0px; }\n\n.hourglass {\n  display: block;\n  background: #1F2D3D;\n  margin: 3em auto;\n  width: 1em;\n  height: 2em;\n  box-shadow: inset #1F2D3D 0 0 0 0, inset #FFFFFF 0 2em 0 0, inset #1F2D3D 0 0 4em 0;\n  animation: hourglass 1s linear infinite; }\n\n.outer {\n  fill: #FFFFFF; }\n\n.middle {\n  fill: #1F2D3D; }\n\n@keyframes hourglass {\n  0% {\n    transform: rotate(0deg);\n    box-shadow: inset #1F2D3D 0 0 0 0, inset #FFFFFF 0 2em 0 0, inset #1F2D3D 0 4em 0 0, inset #FFFFFF 0 4em 0 0; }\n  80% {\n    transform: rotate(0deg);\n    box-shadow: inset #1F2D3D 0 2em 0 0, inset #FFFFFF 0 2em 0 0, inset #1F2D3D 0 2em 0 0, inset #FFFFFF 0 4em 0 0; }\n  100% {\n    transform: rotate(180deg);\n    box-shadow: inset #1F2D3D 0 2em 0 0, inset #FFFFFF 0 2em 0 0, inset #1F2D3D 0 2em 0 0, inset #FFFFFF 0 4em 0 0; } }\n", "", {"version":3,"sources":["/./src/components/Hourglass/src/_setup.scss","/./src/components/Hourglass/src/components/Hourglass/Hourglass.scss"],"names":[],"mappings":"AAKA;EACE,iCAAgC,EACjC;;AAED;EACE,0BARc;EASd,YAAU,EACX;;ACVD;EACI,eAAa;EACb,oBDFY;ECGZ,iBAAe;EACf,WAAS;EACT,YAAU;EACV,oFAG2B;EAC3B,wCAAsC,EACzC;;AAED;EACI,cDbY,ECcf;;AAED;EACI,cDlBY,ECmBf;;AAED;EACI;IACI,wBAAsB;IACtB,6GAI2B,EAAA;EAE/B;IACI,wBAAsB;IACtB,+GAI2B,EAAA;EAE/B;IACI,0BAAwB;IACxB,+GAI2B,EAAA,EAAA","file":"Hourglass.scss","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Cabin');\n\n$brand1: #1F2D3D;\n$brand2: #FFFFFF;\n\n* {\n  font-family: 'Cabin', sans-serif;\n}\n\nbody {\n  background-color: $brand1;\n  margin:0px;\n}\n","@import '../../_setup';\n\n.hourglass{\n    display:block;\n    background: $brand1;\n    margin:3em auto;\n    width:1em;\n    height:2em;\n    box-shadow:\n        inset $brand1 0 0 0 0,\n        inset $brand2 0 2em 0 0,\n        inset $brand1 0 0 4em 0;\n    animation:hourglass 1s linear infinite;\n}\n\n.outer{\n    fill:$brand2;\n}\n\n.middle{\n    fill:$brand1;\n}\n\n@keyframes hourglass{\n    0%{\n        transform:rotate(0deg);\n        box-shadow:\n            inset $brand1 0 0 0 0,\n            inset $brand2 0 2em 0 0,\n            inset $brand1 0 4em 0 0,\n            inset $brand2 0 4em 0 0;\n    }\n    80%{\n        transform:rotate(0deg);\n        box-shadow:\n            inset $brand1 0 2em 0 0,\n            inset $brand2 0 2em 0 0,\n            inset $brand1 0 2em 0 0,\n            inset $brand2 0 4em 0 0;\n    }\n    100%{\n        transform:rotate(180deg);\n        box-shadow:\n            inset $brand1 0 2em 0 0,\n            inset $brand2 0 2em 0 0,\n            inset $brand1 0 2em 0 0,\n            inset $brand2 0 4em 0 0;\n    }\n}\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "* {\n  font-family: Helvetica, Arial, sans-serif; }\n\nbody {\n  background-color: #1F2D3D;\n  margin: 0px; }\n\n.hourglass {\n  display: block;\n  background: #1F2D3D;\n  margin: 3em auto;\n  width: 1em;\n  height: 2em;\n  box-shadow: inset #1F2D3D 0 0 0 0, inset #FFFFFF 0 2em 0 0, inset #1F2D3D 0 0 4em 0;\n  animation: hourglass 1s linear infinite; }\n\n.outer {\n  fill: #FFFFFF; }\n\n.middle {\n  fill: #1F2D3D; }\n\n@keyframes hourglass {\n  0% {\n    transform: rotate(0deg);\n    box-shadow: inset #1F2D3D 0 0 0 0, inset #FFFFFF 0 2em 0 0, inset #1F2D3D 0 4em 0 0, inset #FFFFFF 0 4em 0 0; }\n  80% {\n    transform: rotate(0deg);\n    box-shadow: inset #1F2D3D 0 2em 0 0, inset #FFFFFF 0 2em 0 0, inset #1F2D3D 0 2em 0 0, inset #FFFFFF 0 4em 0 0; }\n  100% {\n    transform: rotate(180deg);\n    box-shadow: inset #1F2D3D 0 2em 0 0, inset #FFFFFF 0 2em 0 0, inset #1F2D3D 0 2em 0 0, inset #FFFFFF 0 4em 0 0; } }\n", "", {"version":3,"sources":["/./src/components/Hourglass/src/_setup.scss","/./src/components/Hourglass/src/components/Hourglass/Hourglass.scss"],"names":[],"mappings":"AAMA;EACE,0CAH6C,EAI9C;;AAED;EACE,0BATc;EAUd,YAAU,EACX;;ACXD;EACI,eAAa;EACb,oBDFY;ECGZ,iBAAe;EACf,WAAS;EACT,YAAU;EACV,oFAG2B;EAC3B,wCAAsC,EACzC;;AAED;EACI,cDbY,ECcf;;AAED;EACI,cDlBY,ECmBf;;AAED;EACI;IACI,wBAAsB;IACtB,6GAI2B,EAAA;EAE/B;IACI,wBAAsB;IACtB,+GAI2B,EAAA;EAE/B;IACI,0BAAwB;IACxB,+GAI2B,EAAA,EAAA","file":"Hourglass.scss","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Cabin');\n\n$brand1: #1F2D3D;\n$brand2: #FFFFFF;\n$sans-serif-stack: Helvetica, Arial, sans-serif;\n\n* {\n  font-family: $sans-serif-stack;\n}\n\nbody {\n  background-color: $brand1;\n  margin:0px;\n}\n","@import '../../_setup';\n\n.hourglass{\n    display:block;\n    background: $brand1;\n    margin:3em auto;\n    width:1em;\n    height:2em;\n    box-shadow:\n        inset $brand1 0 0 0 0,\n        inset $brand2 0 2em 0 0,\n        inset $brand1 0 0 4em 0;\n    animation:hourglass 1s linear infinite;\n}\n\n.outer{\n    fill:$brand2;\n}\n\n.middle{\n    fill:$brand1;\n}\n\n@keyframes hourglass{\n    0%{\n        transform:rotate(0deg);\n        box-shadow:\n            inset $brand1 0 0 0 0,\n            inset $brand2 0 2em 0 0,\n            inset $brand1 0 4em 0 0,\n            inset $brand2 0 4em 0 0;\n    }\n    80%{\n        transform:rotate(0deg);\n        box-shadow:\n            inset $brand1 0 2em 0 0,\n            inset $brand2 0 2em 0 0,\n            inset $brand1 0 2em 0 0,\n            inset $brand2 0 4em 0 0;\n    }\n    100%{\n        transform:rotate(180deg);\n        box-shadow:\n            inset $brand1 0 2em 0 0,\n            inset $brand2 0 2em 0 0,\n            inset $brand1 0 2em 0 0,\n            inset $brand2 0 4em 0 0;\n    }\n}\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -139106,7 +139107,7 @@
 	var content = __webpack_require__(261);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(236)(content, {});
+	var update = __webpack_require__(237)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -139126,12 +139127,12 @@
 /* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(248)();
+	exports = module.exports = __webpack_require__(236)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Cabin);", ""]);
 	
 	// module
-	exports.push([module.id, "* {\n  font-family: 'Cabin', sans-serif; }\n\nbody {\n  background-color: #1F2D3D;\n  margin: 0px; }\n\n.btn {\n  margin-top: 20px;\n  display: block;\n  width: 50%;\n  margin: 40px auto;\n  height: 50px;\n  color: #FFFFFF;\n  background-color: #1F2D3D;\n  border: 1px solid #FFFFFF;\n  text-transform: uppercase; }\n", "", {"version":3,"sources":["/./src/components/Button/src/_setup.scss","/./src/components/Button/src/components/Button/Button.scss"],"names":[],"mappings":"AAKA;EACE,iCAAgC,EACjC;;AAED;EACE,0BARc;EASd,YAAU,EACX;;ACVD;EACE,iBAAgB;EAChB,eAAc;EACd,WAAU;EACV,kBAAiB;EACjB,aAAY;EACZ,eDLc;ECMd,0BDPc;ECQd,0BDPc;ECQd,0BAAyB,EAC1B","file":"Button.scss","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Cabin');\n\n$brand1: #1F2D3D;\n$brand2: #FFFFFF;\n\n* {\n  font-family: 'Cabin', sans-serif;\n}\n\nbody {\n  background-color: $brand1;\n  margin:0px;\n}\n","@import '../../_setup';\n\n.btn {\n  margin-top: 20px;\n  display: block;\n  width: 50%;\n  margin: 40px auto;\n  height: 50px;\n  color: $brand2;\n  background-color: $brand1;\n  border: 1px solid $brand2;\n  text-transform: uppercase;\n}\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "* {\n  font-family: Helvetica, Arial, sans-serif; }\n\nbody {\n  background-color: #1F2D3D;\n  margin: 0px; }\n\n.btn {\n  margin-top: 20px;\n  display: block;\n  width: 50%;\n  margin: 40px auto;\n  height: 50px;\n  color: #FFFFFF;\n  background-color: #1F2D3D;\n  border: 1px solid #FFFFFF;\n  text-transform: uppercase; }\n", "", {"version":3,"sources":["/./src/components/Button/src/_setup.scss","/./src/components/Button/src/components/Button/Button.scss"],"names":[],"mappings":"AAMA;EACE,0CAH6C,EAI9C;;AAED;EACE,0BATc;EAUd,YAAU,EACX;;ACXD;EACE,iBAAgB;EAChB,eAAc;EACd,WAAU;EACV,kBAAiB;EACjB,aAAY;EACZ,eDLc;ECMd,0BDPc;ECQd,0BDPc;ECQd,0BAAyB,EAC1B","file":"Button.scss","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Cabin');\n\n$brand1: #1F2D3D;\n$brand2: #FFFFFF;\n$sans-serif-stack: Helvetica, Arial, sans-serif;\n\n* {\n  font-family: $sans-serif-stack;\n}\n\nbody {\n  background-color: $brand1;\n  margin:0px;\n}\n","@import '../../_setup';\n\n.btn {\n  margin-top: 20px;\n  display: block;\n  width: 50%;\n  margin: 40px auto;\n  height: 50px;\n  color: $brand2;\n  background-color: $brand1;\n  border: 1px solid $brand2;\n  text-transform: uppercase;\n}\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 

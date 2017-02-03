@@ -2,9 +2,10 @@
 
 $brand1: #1F2D3D;
 $brand2: #FFFFFF;
+$sans-serif-stack: Helvetica, Arial, sans-serif;
 
 * {
-  font-family: 'Cabin', sans-serif;
+  font-family: $sans-serif-stack;
 }
 
 body {

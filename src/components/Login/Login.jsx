@@ -43,11 +43,11 @@ class Login extends React.Component {
     pollySpeak("Please present your face!");
   }
   render() {
-    var component
+    let component = null;
     if(this.state.validating) {
-      component = <Hourglass />
+      component = <Hourglass />;
     } else {
-      component = <Button clickHandler={this.validate} text="Validate" />
+      component = <Button clickHandler={this.validate} text="Validate" />;
     }
 
     return (
@@ -65,16 +65,17 @@ class Login extends React.Component {
       Promise.resolve(
         AWSUtil.compareFaces(buf)
       ).then((data) => {
-        this.setState({ validating: true });
+        this.setState({ validating: false });
         if(data){
           pollySpeak('Validation passed. Welcome Mr President.');
           Webcam.reset();
           hashHistory.push('/code');
         } else {
+          console.log(this.state);
           pollySpeak('Validation failed.');
         }
       }).catch((err) => {
-        this.setState({ validating: true });
+        this.setState({ validating: false });
         pollySpeak('Validation failed. I was unable to compare your face.');
       });
     })

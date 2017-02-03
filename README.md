@@ -27,8 +27,7 @@ Then from the root directory, run:
 ```
 s3 cp ./president.jpg s3://{your_bucket_name}/nuclear-codes/president.jpg
 ```
-- Make sure your CLI is using the details for the account you are using for this application. I use [Named Profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-multiple-profiles) to do this.
-- Also make sure you change `{your_bucket_name}` to be the bucket name you set up on point two.
+(Make sure your CLI is using the details for the account you are using for this application. I use [Named Profiles](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-multiple-profiles) to do this.)
 
 4. Copy the `aws_config.json.example` into `aws_config.json` and update the details to be the security credential of the user you are using in the `aws_config.json` file.
 

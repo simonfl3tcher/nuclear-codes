@@ -1,3 +1,5 @@
+/*global Uint8Array */
+
 import 'aws-sdk/dist/aws-sdk';
 import aws_config from '../../aws_config.json';
 
@@ -35,7 +37,7 @@ var AWSUtil = (function() {
     return compareFacePromise
       .then((data) => {
         return data.FaceMatches[0] ? true : false;
-      }).catch((err) => {
+      }).catch(() => {
         return false;
       });
   }
@@ -57,7 +59,7 @@ var AWSUtil = (function() {
         let blob         = new Blob([arrayBuffer]);
 
         return URL.createObjectURL(blob);
-      }).catch((err) => {
+      }).catch(() => {
         console.log('Something went wrong with polly!');
       });
   }
@@ -73,9 +75,9 @@ var AWSUtil = (function() {
     ).promise();
 
     return putObjectPromise
-      .then((data) => {
-        return compareFacesWithRekognition();
-      }).catch((err) => {
+      .then(() => {
+        compareFacesWithRekognition();
+      }).catch(() => {
         return false;
       });
   }

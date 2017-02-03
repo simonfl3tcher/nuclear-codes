@@ -1,7 +1,7 @@
 // JS
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, hashHistory, Link }  from 'react-router'
+import { Router, Route, IndexRoute, hashHistory }  from 'react-router'
 
 // Components
 import Code  from './components/Code/Code.jsx';
@@ -14,6 +14,10 @@ class App extends React.Component {
       <div>{this.props.children}</div>
     )
   }
+}
+
+App.propTypes = {
+  children: React.PropTypes.array.isRequired
 }
 
 // Routes for app

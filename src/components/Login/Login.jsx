@@ -1,11 +1,12 @@
+/*global Promise */
+
 // CSS/Assets
 import './Login.scss';
 
 // JS
 import React from 'react';
 import Webcam from 'webcamjs';
-import * as play from 'audio-play';
-import { Link, hashHistory } from 'react-router'
+import { hashHistory } from 'react-router'
 
 import AWSUtil from '../../utils/awsUtil.js'
 import Hourglass from '../Hourglass/Hourglass.jsx'
@@ -20,8 +21,8 @@ function pollySpeak(string) {
       setTimeout(() => {
        audioElement.play();
       }, 500);
-    }).catch((error) => {
-      console.log("Something went wrong with playing the Polly file.");
+    }).catch(() => {
+      console.log('Something went wrong with playing the Polly file.');
     });
 }
 
@@ -40,20 +41,20 @@ class Login extends React.Component {
       height: 450
     });
     Webcam.attach('#webcam');
-    pollySpeak("Please present your face!");
+    pollySpeak('Please present your face!');
   }
   render() {
     let component = null;
     if(this.state.validating) {
       component = <Hourglass />;
     } else {
-      component = <Button clickHandler={this.validate} text="Validate" />;
+      component = <Button clickHandler={this.validate} text='Validate' />;
     }
 
     return (
       <div>
-        <audio id="audio"></audio>
-        <div id="webcam"></div>
+        <audio id='audio'></audio>
+        <div id='webcam'></div>
         { component }
       </div>
     )
@@ -61,20 +62,26 @@ class Login extends React.Component {
   validate() {
     Webcam.snap((data_uri) => {
       this.setState({ validating: true });
-      let buf = new Buffer(data_uri.replace(/^data:image\/\w+;base64,/, ""),'base64');
+
+      let buf = new Buffer(
+        data_uri.replace(/^data:image\/\w+;base64,/, ''),
+        'base64'
+      );
+
       Promise.resolve(
         AWSUtil.compareFaces(buf)
       ).then((data) => {
         this.setState({ validating: false });
+
         if(data){
           pollySpeak('Validation passed. Welcome Mr President.');
           Webcam.reset();
           hashHistory.push('/code');
         } else {
-          console.log(this.state);
+          this.setState({ validating: false });
           pollySpeak('Validation failed.');
         }
-      }).catch((err) => {
+      }).catch(() => {
         this.setState({ validating: false });
         pollySpeak('Validation failed. I was unable to compare your face.');
       });

@@ -23,22 +23,28 @@ class Code extends React.Component {
     };
   }
   generateSecretCode() {
-    return Array.apply(null, Array(4)).map((_) => { return generateRandomNumber() });
+    return Array.apply(
+      null,
+      Array(4)).map(() => { return generateRandomNumber() }
+    );
   }
   render() {
     return (
       <div>
-        <div className="centered">
-          <img src={bomb} className="bomb" alt="bomb" />
-          <div className="code">
-            <div className="codesWrapper">
+        <div className='centered'>
+          <img src={bomb} className='bomb' alt='bomb' />
+          <div className='code'>
+            <div className='codesWrapper'>
               { this.state.codes.map((code, i) => <div key={i}>{code}</div>) }
+
               <ReactInterval timeout={5000} enabled={true}
-              callback={ () => this.setState({ code: this.generateSecretCode() }) } />
+                callback={ () => {
+                  this.setState({ code: this.generateSecretCode() }) 
+                } } />
             </div>
           </div>
           <small>
-            <Link to={`/`}>Logout</Link>
+            <Link to={'/'}>Logout</Link>
           </small>
         </div>
       </div>
